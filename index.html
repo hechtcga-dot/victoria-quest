@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victoria's Quest</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #120c1c; color: #eee; font-family: "Trebuchet MS", Verdana, sans-serif; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  canvas { width: min(100vw, calc(100vh * 4 / 3 - 20px)); aspect-ratio: 4 / 3; image-rendering: pixelated; border-radius: 8px; box-shadow: 0 0 40px #9b5de555; touch-action: none; }
+  #pad { display: none; gap: 24px; align-items: center; user-select: none; }
+  #pad button { width: 56px; height: 56px; border-radius: 12px; border: 2px solid #f6d365; background: #2a1f3d; color: #f6d365; font-size: 22px; touch-action: none; }
+  #dirs { display: grid; grid-template-columns: repeat(3, 56px); gap: 4px; }
+  #pad .a { width: 72px; height: 72px; border-radius: 50%; font-weight: bold; }
+  @media (pointer: coarse) { #pad { display: flex; } }
+</style>
+</head>
+<body>
+<canvas id="game" width="640" height="480"></canvas>
+<div id="pad">
+  <div id="dirs">
+    <span></span><button data-key="ArrowUp">▲</button><span></span>
+    <button data-key="ArrowLeft">◀</button><span></span><button data-key="ArrowRight">▶</button>
+    <span></span><button data-key="ArrowDown">▼</button><span></span>
+  </div>
+  <button class="a" data-key=" ">A</button>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
